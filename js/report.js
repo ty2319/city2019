@@ -1,6 +1,5 @@
 $(window).on('load', function() {
 	
-	
 	if ($(window).width() < 600) {
 		$('.contents ul').hide();
 	} else {
@@ -17,11 +16,6 @@ $(window).on('load', function() {
 			var hit	= $(this);
 			var num		= hit.parents('ul').children().index(hit.parent());
 			var target	= hit.attr('href');
-				
-			setTimeout(function(){
-				hit.parents('ul').siblings().children('.right').hide();
-				hit.parents('ul').siblings().children('.right').eq(num).show();
-			} , 300);
 			
 			if (num > num2) {
 				$(target).animate({left: '0'}, 600 , 'swing');
@@ -37,6 +31,11 @@ $(window).on('load', function() {
 			
 			hit.parent().siblings().removeClass('show');
 			hit.parent().addClass('show');
+				
+			setTimeout(function(){
+				hit.parents('ul').siblings().children('.right').hide();
+				hit.parents('ul').siblings().children('.right').eq(num).show();
+			} , 300);
 			
 			num2 = num;
 			num3 = hit.parents('ul').children().index('.show');
